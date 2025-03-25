@@ -1,10 +1,12 @@
 package jm.task.core.jdbc.dao;
 
-import com.mysql.cj.Query;
-import com.mysql.cj.Session;
+
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
+import org.hibernate.Session;
 
+import javax.persistence.Query;
 import javax.transaction.Transaction;
 import java.util.List;
 

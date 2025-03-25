@@ -3,15 +3,16 @@ package jm.task.core.jdbc.util;
 import jm.task.core.jdbc.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
-import java.lang.module.Configuration;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static jm.task.core.jdbc.dao.UserDaoHibernateImpl.
+
 
 public class Util {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306";
