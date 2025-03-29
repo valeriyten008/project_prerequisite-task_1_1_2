@@ -20,7 +20,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sqlCommands = "CREATE TABLE IF NOT EXISTS users (" +
                 "id BIGINT AUTO_INCREMENT PRIMARY KEY, " +
                 "name VARCHAR(100), " +
-                "gitlastName VARCHAR(100), " +
+                "lastName VARCHAR(100), " +
                 "age TINYINT)";
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
@@ -33,13 +33,13 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void dropUsersTable() {
-        String sqlCommands = "DROP TABLE IF EXISTS";
+        String sqlCommands = "DROP TABLE IF EXISTS users";
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement()) {
             statement.executeUpdate(sqlCommands);
             logger.info("Table was removed");
         } catch (SQLException e) {
-            logger.log(Level.SEVERE,"Error in dropping users table");
+            logger.log(Level.SEVERE,"Error in table dropping",e);
         }
     }
 
@@ -85,7 +85,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 }
                 logger.info("Returned all users");
             } catch (SQLException e){
-                logger.log(Level.SEVERE,"Error returing all users",e);
+                logger.log(Level.SEVERE,"Error getting all users",e);
             }
             return users;
         }
